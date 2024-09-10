@@ -21,4 +21,36 @@ To run the application, follow these steps:
    git clone https://github.com/Aryan185/InsightViz-Dynamic-Content-Extraction-and-Visualization.git
    cd InsightViz-Dynamic-Content-Extraction-and-Visualization:
 
-2. 
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+
+3. The image generation side is handled on ComfyUI. It uses Flux Dev model and the workflow is begin exported and used as an API here. Make sure that the server, either locally or remote, is on. Change the server address accordingly. If running locally then use as it is else replace with the IP of the remote server.
+
+4. **Run the application**:
+   ```bash
+   streamlit run app.py
+
+
+## Usage
+### Sidebar Menu:
+**Input Method**: Choose between uploading a local file or entering a URL.
+**Number of Images**: Select how many chunks (and corresponding images) you want the article to be divided into.
+
+### File Upload or URL Input:
+You can upload a .txt file containing an article, or paste a URL for online content.
+
+### Submit Button:
+Once you’ve uploaded your file or entered a URL and set the number of chunks, click Submit to generate scene descriptions and images.
+
+### Generated Scenes and Images:
+For each chunk of text, the application will:
+
+1. Extract important lines.
+2. Generate a scene description.
+3. Use a WebSocket server to request a text-to-image model for comic-style images.
+4. Display the generated images and their corresponding scene descriptions on the interface.
+
+
+## JSON Workflow (comicer_flux.json):
+This file contains the workflow for generating images from text descriptions. It includes details like text prompts and image configurations.
